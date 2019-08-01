@@ -20,8 +20,16 @@ namespace NumberGuess
              Console.WriteLine("Please guess a number between 1 and 100");
              string userInput = Console.ReadLine();
              int guess = 0;
-             Int32.TryParse(userInput, out guess);
-             
+               bool isInt = Int32.TryParse(userInput, out guess);
+               if (!isInt)
+               {
+                   Console.WriteLine("That isn't a number");
+                
+               }
+             if (guess < 1 || guess > 100)
+             {
+                 Console.WriteLine("Select a number between 1 and 100");
+             }
 
 
         
