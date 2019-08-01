@@ -16,7 +16,6 @@ namespace NumberGuess
             // User provides input again if the number doesn't match!
             Random rndm = new Random();
             int compNum = rndm.Next(1, 101);
-            Console.WriteLine($"computer says: {compNum}");
             int numOfGuess = 0;
             while (true)
             {
