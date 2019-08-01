@@ -16,8 +16,11 @@ namespace NumberGuess
             // User provides input again if the number doesn't match!
             Random rndm = new Random();
             int compNum = rndm.Next(1, 101);
+            Console.WriteLine($"computer says: {compNum}");
+            int numOfGuess = 0;
             while (true)
             {
+                
                 Console.WriteLine("Please guess a number between 1 and 100");
                 string userInput = Console.ReadLine();
                 int guess = 0;
@@ -25,23 +28,26 @@ namespace NumberGuess
                 if (!isInt)
                 {
                     Console.WriteLine("That isn't a number");
-
+                    continue;
                 }
                 if (guess < 1 || guess > 100)
                 {
                     Console.WriteLine("Select a number between 1 and 100");
+                    continue;
                 }
-                if (compNum > guess)
+                numOfGuess++;
+                if (compNum < guess)
                 {
                     Console.WriteLine("Guess lower.");
                 }
-                else if (compNum < guess)
+                else if (compNum > guess)
                 {
                     Console.WriteLine("Guess higher.");
                 }
                 else
                 {
                     Console.WriteLine("You guessed right!");
+                    Console.WriteLine($"It took you {numOfGuess} tries");
                 }
             }
         }
